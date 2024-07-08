@@ -21,7 +21,3 @@ BEGIN
         INSERT (FirstName, LastName, [Address], HomePhone, Country)
         VALUES (source.FirstName, source.LastNAme, source.Direccion, source.Telefono, source.Country);
 END;
-
-select * from 
-Customers
-use NORTHWND
