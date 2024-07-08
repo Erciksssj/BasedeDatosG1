@@ -13,5 +13,4 @@ end
 go
 
 execute sp_solicitar_promedio_prod 2;
-
 execute sp_solicitar_promedio_prod @catego=5;
