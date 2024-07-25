@@ -21,7 +21,7 @@ execute sp_empleado '1992/05/01', '1993/10/17'
 
 select * from Employees
 go
-
+--===================================================================================================================================================
 --sp para actualizar el precio de un pruducto y registrar el cambio 
 --1:Crear un sp que se llame actualizar_precio_producto
 create or alter proc actualizar_precio_producto

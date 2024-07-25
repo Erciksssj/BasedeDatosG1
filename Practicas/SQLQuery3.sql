@@ -80,8 +80,10 @@ GO
 select * from Ventas
 
 insert into etlempresa.dbo.cliente
-select CustomerID,upper(CompanyName) as 'Empresa',upper(City) as 'Ciudad',
-upper (isnull(nc.Region,'Sin Region')) as Region,upper(Country)
+select nc.CustomerID,upper(CompanyName) as 'Empresa',
+upper(City) as 'Ciudad',
+upper (isnull(nc.Region,'Sin Region')) as Region,
+upper(Country)
 from NORTHWND.dbo.Customers as nc
 left join etlempresa.dbo.Cliente as etle
 on nc.CustomerID=etle.clientebk
@@ -111,13 +113,15 @@ select * from etlempresa.dbo.Cliente
 
 truncate table etlempresa.dbo.cliente
 go
---------------------------------------------
+--------------------------------------------===============================================================
 CREATE or alter PROC sp_etl_carga_cliente
 AS
 begin
 insert into etlempresa.dbo.cliente
-select CustomerID, UPPER(CompanyName) AS 'Empresa',UPPER(city) as Ciudad,
-upper(ISNULL(nc.region, 'SIN REGION')) AS Region, UPPER(country) as pais
+select CustomerID, UPPER(CompanyName) AS 'Empresa',
+UPPER(city) as Ciudad,
+upper(ISNULL(nc.region, 'SIN REGION')) AS Region,
+UPPER(country) as pais
 from Northwind.dbo.Customers as nc
 left join etlempresa.dbo.cliente etle
 on nc.CustomerID = etle.clientebk

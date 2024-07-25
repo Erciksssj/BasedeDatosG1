@@ -22,7 +22,7 @@ INNER JOIN [Order Details] as od
 on od.OrderID=o.OrderID
 INNER JOIN Products as p
 on p.ProductID=od.ProductID
-
+--==========================================================
 SELECT Clave,Nombre,Nombredel6producto,Fechadelaorden,
 (CantidadVendida * PrecioVenta) as 'Importe'
 FROM vistas_ventas
@@ -59,7 +59,7 @@ end as 'Categorias de precios'
 from Products 
  WHERE ProductID in (29,38)
 
- use AdventureWorks2019
+ use NORTHWND
 
 SELECT
 BusinessEntityID,SalariedFlag 

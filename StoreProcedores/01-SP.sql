@@ -38,7 +38,7 @@ declare @resp float
 exec calcula_area @radio=22.3, @area=@resp output
 print 'El area es: '+ cast(@resp as varchar)
 
---
+--================================================
 select CONCAT(FirstName,' ',LastName) from
 Employees
 where EmployeeID=3
@@ -76,9 +76,10 @@ print 'No existe'
 end
 end;
 go
+use NORTHWND
 
 declare @nombrecompleto nvarchar(35)
-execute sp_obtenerdatosempleadom @numeroEmpleado=10,@fullname=@nombrecompleto output
+execute sp_obtenerdatosempleadom @numeroEmpleado=11,@fullname=@nombrecompleto output
 print @nombrecompleto
 go
 
@@ -164,8 +165,10 @@ create table Ventas(
 GO
 
 insert into etlempresa.dbo.cliente
-select CustomerID,upper(CompanyName) as 'Empresa',upper(City) as 'Ciudad',
-upper (isnull(nc.Region,'Sin Region')) as Region,upper(Country)
+select CustomerID,upper(CompanyName) as 'Empresa',
+upper(City) as 'Ciudad',
+upper (isnull(nc.Region,'Sin Region')) as Region,
+upper(Country)
 from NORTHWND.dbo.Customers as nc
 left join etlempresa.dbo.Cliente as etle
 on nc.CustomerID=etle.clientebk
@@ -204,7 +207,6 @@ from Northwind.dbo.Customers as nc
 left join etlempresa.dbo.cliente etle
 on nc.CustomerID = etle.clientebk
 where etle.clientebk is null;
-
 
 update cl
 set
